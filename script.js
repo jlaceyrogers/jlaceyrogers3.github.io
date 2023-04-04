@@ -6,6 +6,7 @@
 //this saved the text in the text area to local storage
 
 $(function() {
+
   var saveBtn = $(".saveBtn");
 
   function saveBtnClick() {
@@ -36,29 +37,16 @@ $(function() {
       $(this).addClass("Future");
     }
 
+        //get user input from localStorage and set the value of the textarea element
+        var userInput = localStorage.getItem($(this).attr("id"));
+        if (userInput) {
+          $(this).find(".description").val(userInput);
+        }
   });
 });
 
 
-
-// Add code to apply the past, present, or future class to each time block by comparing the id to the current hour. 
-
-
-
-
-
-
-
-
-
-
-  //HINTS: How can the id attribute of each time-block be used to conditionally add or remove the past, present, and future classes? How can Day.js be used to get the current hour in 24-hour time?
-
-
-
+var TimeRightNow = dayjs().format('h:mm A');
+var headerTimeClock = document.getElementById("headerTime");
+headerTimeClock.textContent = TimeRightNow;
   
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  
-  // TODO: Add code to display the current date in the header of the page.
