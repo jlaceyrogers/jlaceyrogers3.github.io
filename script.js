@@ -50,3 +50,5 @@ var TimeRightNow = dayjs().format('h:mm A');
 var headerTimeClock = document.getElementById("headerTime");
 headerTimeClock.textContent = TimeRightNow;
   
+//this is the current date using dayjs
+
